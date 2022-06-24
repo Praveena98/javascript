@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LAB 2</title>
+	<meta charaset ="utf-8">
+	<meta name="description" content ="html lab">
+	<meta name="keyword" content ="HTML,CSS,XML,JS">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style type="text/css"></style>	
+</head>
+<body>
+    <div class="container"><br>
+    	<h1 class="text-success text-center"> Signup </h1><br>
+        <div class="col-lg-8 m-auto d-block">
+            <form action="#" onsubmit="return validation()" class="bg-light">
+
+            	<div class="form-group">   
+            		<label>Name:</label>
+            		<input type="text" name="user" class="form-control" id="user" autocomplete="off">
+            		<span id="username" class="text-danger font-weight-bold"></span>
+            	</div>
+
+            	<div class="form-group">
+            		<label>Email:</label>
+            		<input type="text" name="email" class="form-control" id="emails" autocomplete="off">
+            		<span id="emailids" class="text-danger font-weight-bold"></span>
+            	</div>
+
+            	<div class="form-group">
+            		<label>Mobile Number:</label>
+            		<input type="text" name="mobile" class="form-control" id="mobilenumber" autocomplete="off">
+            		<span id="mobileno" class="text-danger font-weight-bold"></span>
+            	</div>
+
+            	<div class="form-group">
+            		<label>Password:</label>
+            		<input type="password" name="pass" class="form-control" id="pass" autocomplete="off">
+            		<span id="passwords" class="text-danger font-weight-bold"></span>
+            	</div>
+            	<input type="submit" name="submit" value="submit" class="btn btn-success" autocomplete="off">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+    	function validation(){
+
+    		var user =document.getElementById("user").value;
+
+    		var emails =document.getElementById("emails").value;
+
+    		var mobilenumber =document.getElementById("mobilenumber").value;
+
+    		var pass =document.getElementById("pass").value;
+
+    		if(user ==""){
+    			document.getElementById("username").innerHTML=" ** Please fill the username field";
+    			return false;
+    		}
+    		if((user.length<3) || (user.length >20)){
+    			document.getElementById("username").innerHTML=" ** User length must be between 3 and 20 ";
+    			return false;
+    		}
+    		if(!isNaN(user)){
+    			document.getElementById("username").innerHTML=" ** Only character are allowed";
+    			return false;
+    		}
+
+
+    		if(emails ==""){
+    			document.getElementById("emailids").innerHTML=" ** Please fill the email id field";
+    			return false;
+    		}
+    		if(emails.indexOf("@") <0){
+    			document.getElementById("emailids").innerHTML=" ** @ invalid position";
+    			return false;
+    		}
+    		if((emails.charAt(emails.length-4)!=".") &&(emails.charAt(emails.length-3)!=".")) {
+    			document.getElementById("emailids").innerHTML=" ** . invalid position";
+    			return false;
+    		}
+
+
+    		if(mobilenumber ==""){
+    			document.getElementById("mobileno").innerHTML=" ** Please fill the mobilenumber field";
+    			return false;
+    		}
+    		if(isNaN(mobilenumber)){
+    			document.getElementById("mobileno").innerHTML=" ** User must write digit only not characters";
+    			return false;
+    		}
+    		if(mobilenumber.length!=10){
+    			document.getElementById("mobileno").innerHTML=" ** Mobile number must be 10 digit";
+    			return false;
+    		}
+
+
+    		if(pass ==""){
+    			document.getElementById("passwords").innerHTML=" ** Please fill the password field";
+    			return false;
+    		}
+    		if((pass.length<6) || (pass.length >20)){
+    			document.getElementById("passwords").innerHTML=" ** password length must be between 6 and 20 ";
+    			return false;
+    		}			
+    	}    	
+    </script>
+</body>
+</html>
